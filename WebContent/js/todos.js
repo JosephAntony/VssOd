@@ -101,8 +101,6 @@ $(function(){
     render: function() {
     	
     	var currentDate = new Date();
-    	//alert(currentDate.getDate()+ "/" + (currentDate.getMonth() + 1) + "/" + currentDate.getFullYear());
-    	//alert(currentDate.getHours() + ":" + currentDate.getMinutes() + ":" + currentDate.getMilliseconds());
     	
       this.$el.html(this.template(this.model.toJSON()));
       
@@ -130,7 +128,7 @@ $(function(){
     	  this.$el.removeClass();
     	  this.model.set("EndTime",' ');
       } else if (! this.model.get("done") && this.model.get("EndTime").trim().length == 0 ) {
-    	  //code done by me
+    	  //code for chaging into red
           this.$el.css("color","red");
           this.fadeIntoBlack.apply(this, [this]);
           //----------> till here
@@ -141,6 +139,7 @@ $(function(){
       return this;
     },
 
+    //code to toggle into black
     fadeIntoBlack: function (self) {
     	setTimeout(function () { self.$el.fadeToggle("fast", function () { self.$el.fadeToggle("slow", function () { self.$el.css("color","black"); }); } ); }, 30000);
     },
